@@ -11,8 +11,3 @@
 
 - Enveloppe et nounous
   - quand elle clique sur non, la case oui grossit. jusqu'à remplir la page entière
-
-### Home
-- tapis rouge parsemé de fleur avec un message mignon
-
-### 

@@ -1,7 +1,7 @@
 @use "tailwindcss";
 
 :root{
-    --color-1: #fff;
+    --color-1: #FFE5E8;
     --color-2: #fff;
     --color-3: #fff;
 }
@@ -23,11 +23,22 @@
     body{
         margin:0;
         padding:0;
+        box-sizing: border-box;
     }
 
     input:focus {
         outline: none;
         box-shadow: none;
+    }
+
+    .christabelle{
+        font-family: 'Christabelle';
+    }
+    .fiolexgirl{
+        font-family: 'FiolexGirl';
+    }
+    .myheart{
+        font-family: 'MyHeart';
     }
 }
 
@@ -35,4 +46,23 @@
     .pointer{
         @apply cursor-pointer
     }
+}
+
+@font-face {
+    font-family: 'Christabelle';
+    src: url('../public/fonts/christabelle/Christabelle.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'FiolexGirl';
+    src: url('../public/fonts/fiolex_girls/Filxgirl.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MyHeart';
+    src: url('../public/fonts/myheart/myheart.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
