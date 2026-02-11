@@ -8,5 +8,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './ico-heart.component.scss'
 })
 export class IcoHeartComponent {
-  @Input() svgClass: string = '';
+  @Input() svgClass: string = 'w-4';
+  @Input() dynamicClass: string = '';
 }
