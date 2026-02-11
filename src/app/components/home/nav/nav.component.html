@@ -1,1 +1,49 @@
-<p>nav works!</p>
+<nav class="hidden lg:block fixed z-40 top-0 inset-x-0">
+    <!-- Container -->
+    <div class="hidden lg:block px-32 py-8">
+        <!-- Item Container -->
+        <ul class="flex items-center justify-center gap-8">
+            <!-- Items -->
+            <li class="group flex items-center gap-3 p-2">
+                <a href="#home" [ngClass]="{'translate-x-2': !homeActive(), 'translate-x-0': homeActive()}" class="text-sm text-red-800 font-medium font-sans group-hover:transition-x-0 transition-[transform] duration-300 ease-in-out">Accueil</a>
+                <span [ngClass]="{'-translate-x-4 opacity-0': !homeActive(), 'translate-x-0 opacity-100': homeActive()}" class="w-2 h-2 bg-red-800 group-hover:translate-x-0 group-hover:opacity-100 transition-[transform] duration-300 ease-in-out"></span>
+            </li>
+            <li class="flex items-center gap-3 p-2">
+                <a href="#cv" class="text-sm text-red-800 font-medium font-sans">C.V</a>
+            </li>
+            <li class="flex items-center gap-3 p-2">
+                <a href="#disquettes" class="text-sm text-red-800 font-medium font-sans">Disquette</a>
+            </li>
+            <li class="flex items-center gap-3 p-2">
+                <a href="#contact" class="text-sm text-red-800 font-medium font-sans">Contact</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Nav Mobile -->
+<nav class="lg:hidden fixed z-40 bottom-0 inset-x-0">
+    <!-- Container -->
+    <div class="px-16 py-8">
+        <!-- Item Container -->
+        <ul class="flex items-center justify-evenly gap-4">
+            <!-- Items -->
+            <li class="group flex flex-col justify-start items-center gap-3 p-2">
+                <span span [ngClass]="{'-translate-x-4 opacity-0': !homeActive(), 'translate-x-0 opacity-100': homeActive()}" class="w-2 h-2 bg-red-800 group-hover:translate-x-0 group-hover:opacity-100 transition-[transform] duration-300 ease-in-out"></span>
+                <a href="#home" [ngClass]="{'translate-x-2': !homeActive(), 'translate-x-0': homeActive()}" class="text-sm text-red-800 font-medium font-sans group-hover:transition-x-0 transition-[transform] duration-300 ease-in-out">Accueil</a>
+            </li>
+            <li class="group flex flex-col justify-start items-center gap-3 p-2">
+                <span [ngClass]="{'-translate-x-4 opacity-0': !cvActive(), 'translate-x-0 opacity-100': cvActive()}" class="w-2 h-2 bg-red-800 group-hover:translate-x-0 group-hover:opacity-100 transition-[transform] duration-300 ease-in-out"></span>
+                <a href="#cv" [ngClass]="{'translate-x-2': !cvActive(), 'translate-x-0': cvActive()}" class="text-sm text-red-800 font-medium font-sans group-hover:transition-x-0 transition-[transform] duration-300 ease-in-out">C.V</a>
+            </li>
+            <li class="group flex flex-col justify-start items-center gap-3 p-2">
+                <span span [ngClass]="{'-translate-x-4 opacity-0': !disquetteActive(), 'translate-x-0 opacity-100': disquetteActive()}" class="w-2 h-2 bg-red-800 group-hover:translate-x-0 group-hover:opacity-100 transition-[transform] duration-300 ease-in-out"></span>
+                <a href="#disquettes" [ngClass]="{'translate-x-2': !disquetteActive(), 'translate-x-0': disquetteActive()}" class="text-sm text-red-800 font-medium font-sans group-hover:transition-x-0 transition-[transform] duration-300 ease-in-out">Disquettes</a>
+            </li>
+            <li class="group flex flex-col justify-start items-center gap-3 p-2">
+                <span span [ngClass]="{'-translate-x-4 opacity-0': !contactActive(), 'translate-x-0 opacity-100': contactActive()}" class="w-2 h-2 bg-red-800 group-hover:translate-x-0 group-hover:opacity-100 transition-[transform] duration-300 ease-in-out"></span>
+                <a href="#contact" [ngClass]="{'translate-x-2': !contactActive(), 'translate-x-0': contactActive()}" class="text-sm text-red-800 font-medium font-sans group-hover:transition-x-0 transition-[transform] duration-300 ease-in-out">Contact</a>
+            </li>
+        </ul>
+    </div>
+</nav>
