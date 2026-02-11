@@ -1,5 +1,6 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, ElementRef, OnInit, signal, ViewChild } from '@angular/core';
 import { Lyric } from '../../../interfaces/lyric.interface';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -10,9 +11,41 @@ import { Lyric } from '../../../interfaces/lyric.interface';
 export class HeaderComponent implements OnInit{
   lyricOverlay = signal(false);
   lyrics : Lyric[] = [];
+  marker = signal(false);
+
+  @ViewChild('slider') slider!: ElementRef<HTMLDivElement>;
+  position = 0;
+  speed = 0.3;
 
   ngOnInit(): void {
     this.initLyrics();
+    setTimeout(() => this.startSlider());
+  }
+
+  startSlider() {
+    const trackEl = this.slider.nativeElement;
+    const totalWidth = trackEl.scrollWidth / 2;
+
+    const step = () => {
+      this.position += this.speed;
+      
+      if (this.position >= totalWidth) {
+        this.position = 0;
+      }
+
+      trackEl.style.transform = `translateX(-${this.position}px)`;
+      requestAnimationFrame(step);
+    };
+
+    requestAnimationFrame(step);
+  }
+
+  doMarker(){
+    this.marker.set(true);
+    setTimeout(() => {
+      this.marker.set(false);
+      this.doMarker();
+    }, 30000);
   }
 
   initLyrics(){
