@@ -14,22 +14,14 @@
                     <!-- Overlay French Lyrics (mdr je vais vraiment essayer de traduire la chanson (en parti, faut pas déconner)) -->
                     <div class="fixed inset-0 bg-blue-50/30 flex justify-center items-center justify-start gap-2">
                         <ul class="flex flex-col items-center justify-start gap-2 p-32 py-48">
-                            <li class="text-4xl font-bold font-sans">
-                                <p class="text-blue-800">I see the crystal raindrops fall</p>
-                                <p class="text-red-800">Je vois les crytaux de pluie tomberrrr</p>
-                            </li>
-                            <li>And the beauty of it all</li>
-                            <li>When the sun comes shining through</li>
-                            <li>To make those rainbows in my minds</li>
-                            <li>When i think of you sometimes</li>
-                            <li>And i wanna spend some times with you</li>
-                            <li>Juuuust the two of us (ahhhhhhhhhhh)</li>
-                            <li>We can make it we try, just the two of us</li>
-                            <li>(Just the two of us)</li>
-                            <li>Juuuust the two of us</li>
-                            <li>Building castle in the sky</li>
-                            <li>Just the two of us</li>
-                            <li>You and I</li>
+                            @if(lyricOverlay()){
+                                @for(lyric of lyrics; track lyric){
+                                    <li class="text-4xl font-bold font-sans">
+                                        <p class="text-blue-800">{{ lyric.eng }}</p>
+                                        <p class="text-red-800">{{ lyric.fr }}</p>
+                                    </li>
+                                }
+                            }
                         </ul>
                     </div>
                 </div>
