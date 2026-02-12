@@ -15,7 +15,7 @@
                     <div [ngClass]="{
                             'translate-x-full': !program.active, 
                             'translate-x-0': program.active,
-                            'z-50': program.active && program.top
+                            'z-30': program.active && program.top
                         }" 
                         class="absolute inset-x-0 w-full bg-white transition-transform duration-600 ease-in-out">
                         <!-- Hour -->
@@ -42,7 +42,7 @@
                     <div [ngClass]="{
                             'translate-y-full': !program.active, 
                             'translate-y-0': program.active,
-                            'z-50': program.active && program.top
+                            'z-30': program.active && program.top
                         }"
                         [style.background-image]="program.image"
                         class="absolute w-full aspect-square overflow-hidden rounded-2xl bg-cover bg-center transition-transform duration-600 ease-in-out">
