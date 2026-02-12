@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-cv-section',
-  imports: [NgClass, NgStyle],
+  imports: [],
   templateUrl: './cv-section.component.html',
   styleUrl: './cv-section.component.scss'
 })

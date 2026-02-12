@@ -1,0 +1,74 @@
+<section class="w-full min-h-screen">
+    <div class="px-28 py-24">
+        <!-- Title -->
+        <div>
+            <h2 class="text-6xl text-[var(--color-3)] font-medium font-sans">Programme Valentine Day <br> en amoureux</h2>
+        </div>
+        
+        <!-- Program -->
+        <div class="w-full mx-auto mt-16 px-8 py-12 bg-white rounded-xl">
+            <!-- Program Content -->
+            <div class="flex justify-between gap-18">
+                <!-- Program Texts -->
+                <div class="w-2/3 relative overflow-hidden">
+                    @for(program of programs; track program.index){
+                    <div [ngClass]="{
+                            'translate-x-full': !program.active, 
+                            'translate-x-0': program.active,
+                            'z-50': program.active && program.top
+                        }" 
+                        class="absolute inset-x-0 w-full bg-white transition-transform duration-600 ease-in-out">
+                        <!-- Hour -->
+                        <div class="py-2">
+                            <p class="text-xs text-[var(--color-3)] font-bold font-sans">{{program.time}}</p>    
+                        </div>
+                        <div class="space-y-3">
+                            <!-- Program Title -->
+                            <div>
+                                <h4 class="text-3xl text-gray-800 font-bold">{{program.title}}</h4>
+                            </div>
+                            <!-- Comment -->
+                            <div>
+                                <p class="text-xl poiret-one-regular">{{program.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+                
+                <!-- Program Image -->
+                <div class="w-1/3 aspect-square rounded-2xl relative overflow-hidden">
+                    @for(program of programs; track program.index){
+                    <div [ngClass]="{
+                            'translate-y-full': !program.active, 
+                            'translate-y-0': program.active,
+                            'z-50': program.active && program.top
+                        }"
+                        [style.background-image]="program.image"
+                        class="absolute w-full aspect-square overflow-hidden rounded-2xl bg-cover bg-center transition-transform duration-600 ease-in-out">
+                    </div>
+                    }
+                </div>
+                    
+            </div>
+        </div>
+
+        <!-- Program Navbar -->
+        <div class="w-1/2 mx-auto py-8">
+            <div class="flex items-center justify-evenly">
+                @for(program of programs; track program.index){
+                <button (click)="activeProgram(program.index)" 
+                    class="relative w-5 bg-[var(--color-3)] aspect-square rounded-full pointer"
+                    [disabled]="program.active">
+                    
+                    <div [ngClass]="{
+                            'scale-100' : program.top, 
+                            'scale-0': !program.top
+                        }" 
+                        class="absolute inset-[4px] bg-white rounded-full transition-transform duration-600 ease-in-out"></div>
+                </button>
+                }
+            </div>
+        </div>
+    </div>
+</section>
