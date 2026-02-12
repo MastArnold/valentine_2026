@@ -2,8 +2,8 @@
 
 :root{
     --color-1: #FFE5E8;
-    --color-2: #fff;
-    --color-3: #fff;
+    --color-2: #FFADC3;
+    --color-3: #BE4065;
 }
 
 @layer base{
@@ -45,6 +45,9 @@
     .myheart{
         font-family: 'MyHeart';
     }
+    .valentine{
+        font-family: 'Valentine';
+    }
     .italiana-regular {
         font-family: "Italiana", sans-serif;
         font-weight: 400;
@@ -73,6 +76,12 @@
 @font-face {
     font-family: 'MyHeart';
     src: url('../public/fonts/myheart/myheart.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Valentine';
+    src: url('../public/fonts/valentine/Valentine.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
