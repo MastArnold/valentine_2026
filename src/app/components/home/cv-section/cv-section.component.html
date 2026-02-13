@@ -1,11 +1,11 @@
-<section class="w-full bg-white">
+<section #sectioncv class="w-full bg-white">
     <!-- Container -->
     <div class="flex justify-between items-start gap-16 px-24 py-24">
         <!-- Col Left -->
         <div class="w-1/2 flex flex-col items-start gap-8">
             <!-- Tiles -->
             <div class="flex flex-col gap-2">
-                <h4 class="text-6xl text-gray-600 italiana-regular">Pourquoi accepter <br> d'être ma valentine ?</h4>
+                <h4 class="text-6xl text-[var(--color-3)] italiana-regular">Pourquoi accepter <br> d'être ma valentine ?</h4>
                 <p class="text-sm text-red-800 font-sans font-medium">I got u !</p>
             </div>
             
@@ -22,7 +22,7 @@
                                 <img class="w-full aspect-square object-cover object-top my-auto" [src]="photo.image" [alt]="photo.description">
                             </div>
                             <div class="pt-4">
-                                <p class="text-xl font-medium font-sans">{{photo.description}}</p>
+                                <p class="text-lg max-w-2/3 font-medium font-sans">{{photo.description}}</p>
                             </div>
                         </div>
                         }
@@ -76,7 +76,7 @@
                                 </defs>
                             </svg>
 
-                            <p class="text-base text-gray-800 font-sans font-bold">18.53 m (j'ai arrondi)</p>
+                            <p class="text-base text-gray-800 font-sans font-bold">2,63 m (j'ai arrondi)</p>
                         </li>
                         <li class="flex items-center gap-2">
                             <svg class="w-6" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -156,13 +156,14 @@
                 </div>
             </div>
 
-            <p class="text-xs text-right text-gray-900 font-medium font-sans pt-3 pb-2">
+            <p class="hidden text-xs text-right text-gray-900 font-medium font-sans pt-3 pb-2">
                 Validé par 
                 <span class="font-bold">cupidon</span>
                 en personne
             </p>
             
-            <div class="absolute z-40 -top-32 -right-20 w-48">
+            <!-- Hearths -->
+            <div #hearts [style.transform]="'translateY(' + (heartsProgress * 100) + '%)'" class="absolute z-40 -top-32 -right-20 w-48 transition-[translate, opacity] duration-150">
                 <svg class="w-full aspect-[284/506]" viewBox="0 0 284 506" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M127.157 252L147.157 244.5C161.732 245.678 164.841 251.433 162.157 270C146.717 291.129 135.519 300.692 114.157 316.5C95.5869 294.116 88.5796 281.072 81.657 257C82.8555 248.353 84.3028 243.98 90.657 238.5C103.974 234.38 111.735 235.02 127.157 252Z" fill="#BE4065"/>
                     <path d="M175.157 164.5C179.749 159.995 183.921 158.332 197.157 158.5C209.242 161.3 210.157 177 192.657 190C178.139 203.589 168.888 209.103 152.157 218.5C145.39 201.858 142.714 192.26 140.657 174.5C139.509 167.171 139.329 163.183 140.657 156.5C145.176 148.259 148.032 144.055 159.657 145C167.213 147.799 170.443 152.6 175.157 164.5Z" fill="#BE4065"/>
@@ -182,8 +183,6 @@
                     <path d="M216.157 316.5L222.657 312.5C227.076 313.178 229.391 313.784 229.157 321L213.657 330.5L204.157 318.5C202.134 312.545 202.953 310.634 206.157 308.5C212.605 309.496 214.453 311.533 216.157 316.5Z" fill="#BE4065"/>
                     <path d="M178.157 332.5C193.265 332.866 201.444 333.441 204.157 349.5C202.308 357.308 199.885 360.087 194.657 364L152.657 373.5L146.657 339.5C145.571 327.45 146.823 322.357 152.657 316.5C163.214 313.799 168.848 316.55 178.157 332.5Z" fill="#BE4065"/>
                 </svg>
-
-                
             </div>
         </div>
     </div>

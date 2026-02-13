@@ -1,5 +1,5 @@
 import { NgClass, NgStyle } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { FunnyPhoto } from '../../../interfaces/funny-photo.interface';
 
 @Component({
@@ -44,10 +44,25 @@ export class CvSectionComponent implements OnInit{
   photoTranslatePosition = 0;
   photoTranslateCalc = '';
 
+  @ViewChild('hearts') hearts! : ElementRef;
+  heartsProgress = 0;
+
   ngOnInit(): void {
     setTimeout(() => {
       this.translateTimer();
     }, 3000);
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const scrollOffset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    console.log("offset heartsPosition top : " + scrollOffset);
+    
+    const heartsPosition = this.hearts.nativeElement.getBoundingClientRect().top + window.scrollY; 
+    console.log("heartsPosition : " + heartsPosition);
+     
+    
+    this.heartsProgress = Math.min(scrollOffset / heartsPosition, 1);
   }
 
   translateTimer(){
