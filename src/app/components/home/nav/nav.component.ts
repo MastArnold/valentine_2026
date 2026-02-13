@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import { Component, HostListener, signal } from '@angular/core';
 import { IcoHeartComponent } from "../../../svg/ico/ico-heart/ico-heart.component";
 import { RouterLink } from "@angular/router";
 
@@ -10,11 +10,20 @@ import { RouterLink } from "@angular/router";
   styleUrl: './nav.component.scss'
 })
 export class NavComponent {
+  navBg: boolean = false;
 
   homeActive = signal(true);
   cvActive = signal(false);
   disquetteActive = signal(false);
   contactActive = signal(false);
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const scrollOffset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    
+    const maxScrollCover = 100; 
+    this.navBg = Math.min(scrollOffset / maxScrollCover, 1) == 1;
+  }
 
   activeHome(){
     this.homeActive.set(true);
