@@ -1,11 +1,61 @@
-<div>
+<section class="relative group min-h-screen px-24 py-16 flex justify-center items-center">
     <div>
-        <!-- Enveloppe -->
+        <!-- Heart -->
         <div>
-            
+            <div class="animate-x-spin flex justify-center">
+                <svg class="w-48" viewBox="0 0 83 83" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M57.5691 11.0428C59.9349 25.2505 55.2 34.395 43.3643 38.4765C31.5286 42.5579 28.3523 51.6993 33.8353 65.9008L41.5 73.5427L74.4336 39.9363C77.83 29.1059 75.4203 20.1603 67.2045 13.0996C61.7581 8.905 58.5463 8.21941 57.5691 11.0428Z" fill="#D8D8D8"/>
+                    <mask id="mask0_2080_61" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="31" y="9" width="45" height="65">
+                    <path d="M57.5691 11.0428C59.9349 25.2505 55.2 34.395 43.3643 38.4765C31.5286 42.5579 28.3523 51.6993 33.8353 65.9008L41.5 73.5427L74.4336 39.9363C77.83 29.1059 75.4203 20.1603 67.2045 13.0996C61.7581 8.905 58.5463 8.21941 57.5691 11.0428Z" fill="white"/>
+                    </mask>
+                    <g mask="url(#mask0_2080_61)">
+                    <path d="M83 0H0V83H83V0Z" fill="#FFAA99"/>
+                    </g>
+                    <path d="M68.028 41.6625C74.162 35.2914 74.1567 24.9745 68.0162 18.6101C61.8757 12.2458 51.9215 12.2403 45.7745 18.5979L41.397 23.135L37.1655 18.7478C31.0359 12.3961 21.0989 12.3972 14.9706 18.7502C8.84228 25.1032 8.84333 35.4024 14.9729 41.7541L41.4137 69.1666L68.028 41.6625ZM36.4355 73.9684L9.99587 46.5571C1.28051 37.526 1.27903 22.9812 9.99251 13.9482C18.5939 5.03141 32.4926 4.78169 41.3918 13.2015C50.3 4.62331 64.3293 4.82735 72.9937 13.8076C81.7178 22.8497 81.7253 37.4083 73.0106 46.4597L46.4894 73.9476C45.4926 74.9808 44.2545 75.6353 42.952 75.9111C40.6733 76.4283 38.1831 75.7803 36.4355 73.9684Z" fill="black"/>
+                    <mask id="mask1_2080_61" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="3" y="6" width="77" height="71">
+                    <path d="M68.028 41.6625C74.162 35.2914 74.1567 24.9745 68.0162 18.6101C61.8757 12.2458 51.9215 12.2403 45.7745 18.5979L41.397 23.135L37.1655 18.7478C31.0359 12.3961 21.0989 12.3972 14.9706 18.7502C8.84228 25.1032 8.84333 35.4024 14.9729 41.7541L41.4137 69.1666L68.028 41.6625ZM36.4355 73.9684L9.99587 46.5571C1.28051 37.526 1.27903 22.9812 9.99251 13.9482C18.5939 5.03141 32.4926 4.78169 41.3918 13.2015C50.3 4.62331 64.3293 4.82735 72.9937 13.8076C81.7178 22.8497 81.7253 37.4083 73.0106 46.4597L46.4894 73.9476C45.4926 74.9808 44.2545 75.6353 42.952 75.9111C40.6733 76.4283 38.1831 75.7803 36.4355 73.9684Z" fill="white"/>
+                    </mask>
+                    <g mask="url(#mask1_2080_61)">
+                    <path d="M83 0H0V83H83V0Z" fill="#BE4065"/>
+                    </g>
+                </svg>
+
+            </div>
+        </div>
+        <!-- Texte -->
+        <div>
+            <h4 class="text-8xl text-[var(--color-3)] font-bold valentine">Veux tu être ma valentine</h4>            
+        </div>
+        <!-- Buttons -->
+        <div class="flex justify-evenly items-center gap-12 py-8">
+            @for(btn of yesButtons; track btn){
+            <button [ngStyle]="{ 'top': btn.top, 'left': btn.left }" class="absolute z-40 flex items-center gap-3 pointer">
+                <span class="block border-8 border-[var(--color-3)] rounded-xl w-16 h-16"></span>
+                <span class="text-3xl text-[var(--color-3)] font-bold font-sans uppercase">Oui</span>
+            </button>
+            }
+            <button class="flex items-center gap-3 pointer">
+                <span class="block border-8 border-[var(--color-3)] rounded-xl w-16 h-16"></span>
+                <span class="text-3xl text-[var(--color-3)] font-bold font-sans uppercase">Oui</span>
+            </button>
+            <button [class.hidden]="!btnNoVisible" class="flex items-center gap-3 pointer" (click)="checkNo()">
+                <span class="block border-8 border-[var(--color-3)] rounded-xl w-16 h-16"></span>
+                <span class="text-3xl text-slate-700 font-bold font-sans uppercase">Non</span>
+            </button>
         </div>
     </div>
-    
-    <!-- Meme sauvage -->
-    <div></div>
-</div>
+
+    <div>
+        <!-- Funny Valentine -->
+        <div class="absolute top-12 right-0">
+            <div [ngClass]="{'translate-x-0 -rotate-20': d4cVisible, 'translate-x-full -rotate-0': !d4cVisible}" class="w-48 transition-transform duration-1000">
+                <img class="w-full h-auto" src="images/d4c.png" alt="d4c">
+            </div>
+        </div>
+        
+        <!-- D4C -->
+        <div class="hidden absolute top-0 right-1/2">
+            <div class="w-48 h-48 bg-red-800"></div>
+        </div>
+    </div>
+</section>
