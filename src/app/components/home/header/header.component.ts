@@ -1,6 +1,6 @@
-import { Component, ElementRef, OnInit, signal, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, inject, OnInit, signal, ViewChild } from '@angular/core';
 import { Lyric } from '../../../interfaces/lyric.interface';
-import { NgClass } from '@angular/common';
+import { AudioService } from '../../../services/audio.service';
 
 @Component({
   selector: 'app-header',
@@ -9,9 +9,14 @@ import { NgClass } from '@angular/common';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnInit{
+  audioService = inject(AudioService);
+  audioPlayed = false;
+
   lyricOverlay = signal(false);
   lyrics : Lyric[] = [];
   marker = signal(false);
+  progressCover = 0;
+  progressCupidon = 0;
 
   @ViewChild('slider') slider!: ElementRef<HTMLDivElement>;
   position = 0;
@@ -20,6 +25,26 @@ export class HeaderComponent implements OnInit{
   ngOnInit(): void {
     this.initLyrics();
     setTimeout(() => this.startSlider());
+  }
+
+  playGrover() {
+    if (this.audioPlayed) {
+      this.audioService.pause();
+      this.audioPlayed = false;
+      return;
+    }
+    this.audioPlayed = true;
+    this.audioService.play();
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const scrollOffset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    
+    const maxScrollCover = 500; 
+    const maxScrollCupidon = 180; 
+    this.progressCover = Math.min(scrollOffset / maxScrollCover, 1);
+    this.progressCupidon = Math.min(scrollOffset / maxScrollCupidon, 1);
   }
 
   startSlider() {
