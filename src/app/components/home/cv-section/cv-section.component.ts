@@ -56,11 +56,7 @@ export class CvSectionComponent implements OnInit{
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const scrollOffset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    console.log("offset heartsPosition top : " + scrollOffset);
-    
     const heartsPosition = this.hearts.nativeElement.getBoundingClientRect().top + window.scrollY; 
-    console.log("heartsPosition : " + heartsPosition);
-     
     
     this.heartsProgress = Math.min(scrollOffset / heartsPosition, 1);
   }

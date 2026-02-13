@@ -30,10 +30,8 @@ export class DisquetteSectionComponent implements OnInit{
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const scrollOffset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    console.log("offset top : " + scrollOffset);
     
     const maxScrollOne = this.elFirstOne.nativeElement.getBoundingClientRect().top + window.scrollY; 
-    console.log("maxScrollOne : " + maxScrollOne);
     const maxScrollSecond = this.elSecondOne.nativeElement.getBoundingClientRect().top + window.scrollY; 
     const maxScrollThird = this.elThirdOne.nativeElement.getBoundingClientRect().top + window.scrollY; 
 

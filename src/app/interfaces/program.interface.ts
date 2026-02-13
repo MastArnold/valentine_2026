@@ -1,5 +1,5 @@
 export interface ValentinProgram{
-    index: number,
+    index?: number,
     time: string, 
     title: string, 
     description: string, 

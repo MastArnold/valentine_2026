@@ -1,9 +1,11 @@
 import { Routes } from '@angular/router';
+import { ProgramService } from './services/program.service';
 
 export const routes: Routes = [
     {
         path: 'home',
-        loadComponent: () => import('./components/home/main-page/main-page.component').then(m => m.MainPageComponent)
+        loadComponent: () => import('./components/home/main-page/main-page.component').then(m => m.MainPageComponent),
+        providers: [ProgramService]
     },
     {
         path: 'gift',

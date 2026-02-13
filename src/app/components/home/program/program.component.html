@@ -17,7 +17,7 @@
                             'translate-x-0': program.active,
                             'z-30': program.active && program.top
                         }" 
-                        class="absolute inset-x-0 w-full bg-white transition-transform duration-600 ease-in-out">
+                        class="absolute inset-0 w-full bg-white transition-transform duration-600 ease-in-out">
                         <!-- Hour -->
                         <div class="py-2">
                             <p class="text-xs text-[var(--color-3)] font-bold font-sans">{{program.time}}</p>    
@@ -29,7 +29,7 @@
                             </div>
                             <!-- Comment -->
                             <div>
-                                <p class="text-xl poiret-one-regular">{{program.description}}</p>
+                                <p class="text-xl max-w-2/3 poiret-one-regular">{{program.description}}</p>
                             </div>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
         <div class="w-1/2 mx-auto py-8">
             <div class="flex items-center justify-evenly">
                 @for(program of programs; track program.index){
-                <button (click)="activeProgram(program.index)" 
+                <button (click)="activeProgram($index)" 
                     class="relative w-5 bg-[var(--color-3)] aspect-square rounded-full pointer"
                     [disabled]="program.active">
                     
