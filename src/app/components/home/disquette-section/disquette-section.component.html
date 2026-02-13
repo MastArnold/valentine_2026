@@ -37,10 +37,10 @@
 
         <div class="">
             <div class="relative bg-[var(--color-1)] mt-6 px-12 py-8">
-                <div class="text-xl text-center space-y-3 text-[var(--color-3)] font-bold ">
+                <div class="text-3xl text-center space-y-3 text-[var(--color-3)] font-bold ">
                     @if(!randomLoading){
                         @for(quote of activeDisquette.quotes; track quote){
-                            <p>{{ quote }}</p>
+                            <p class="kissing-season lowercase tracking-wider">{{ quote }}</p>
                         }
                     }
                     @if(randomLoading){

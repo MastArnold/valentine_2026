@@ -45,15 +45,15 @@ export class DisquetteSectionComponent implements OnInit{
   initDisquette(){
     this.disquettes = [
       {
-        id: 0,
-        quotes: ["les étoiles brillent", "le c cédille", "et toi tu m'emoustille"]
-      },
-      {
         id: 1,
-        quotes: ["Tu serais pas un hérisson", "par hasard ?", "parce que tu as piqué mon coeur"]
+        quotes: ["Les étoiles brillent", "Le c cédille", "Et toi tu m'emoustille"]
       },
       {
         id: 2,
+        quotes: ["Tu serais pas un hérisson", "Par hasard ?", "Parce que tu as piqué mon coeur"]
+      },
+      {
+        id: 3,
         quotes: ["La météo ne prévoyais pas d'orage", "pourtant", "j'ai eu le coup de foudre pour toi"]
       },
       {
@@ -63,6 +63,14 @@ export class DisquetteSectionComponent implements OnInit{
       {
         id: 5,
         quotes: ["Tu serais pas un moustique ?", "Parce que tu m'as piqué", "MDRRRRRRRRRRRRRRRRRRR"]
+      },
+      {
+        id: 6,
+        quotes: ["On dit que les noirs savent pas nager", "Pas étonnant que je me noie déjà dans tes yeux"]
+      },
+      {
+        id: 7,
+        quotes: ["J'ai cru que t'avais mis du parfum", "Mais en fait tu as pété", "ça sent bon"]
       }
     ];
 
@@ -71,7 +79,11 @@ export class DisquetteSectionComponent implements OnInit{
 
   getDisquette(){
     this.randomLoading = true;
-    this.activeDisquette = this.disquettes[Math.floor(Math.random() * this.disquettes.length)];
+    let next = this.activeDisquette.id + 1;
+    if(next > 7){
+      next = 1;
+    }
+    this.activeDisquette = this.disquettes.filter(disquette => disquette.id == next)[0];
     setTimeout(() => {
       this.randomLoading = false;
     }, 800);

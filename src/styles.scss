@@ -49,6 +49,9 @@
     .valentine{
         font-family: 'Valentine';
     }
+    .kissing-season{
+        font-family: 'KissingSeason';
+    }
     .italiana-regular {
         font-family: "Italiana", sans-serif;
         font-weight: 400;
@@ -89,6 +92,12 @@
 @font-face {
     font-family: 'Valentine';
     src: url('../public/fonts/valentine/Valentine.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'KissingSeason';
+    src: url('../public/fonts/kissing_season/Kissing\ Season.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
