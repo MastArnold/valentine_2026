@@ -63,6 +63,10 @@
         font-style: normal;
     }
 
+    .spin:hover{
+        animation: spin-temp .6s linear forwards;
+    }
+
 }
 
 @layer utilities{
@@ -100,4 +104,13 @@
     src: url('../public/fonts/kissing_season/Kissing\ Season.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+
+@keyframes spin-temp{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(120deg);
+    }
 }
