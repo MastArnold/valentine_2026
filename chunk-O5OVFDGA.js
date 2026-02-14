@@ -1,0 +1,1 @@
+import{Na as o,Oa as i,Wa as a,ya as n}from"./chunk-SXQPIYMQ.js";var p=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=n({type:t,selectors:[["app-gift-page"]],decls:2,vars:0,template:function(e,s){e&1&&(o(0,"p"),a(1,"gift-page works!"),i())},encapsulation:2})};export{p as GiftPageComponent};
