@@ -9,7 +9,8 @@ export const routes: Routes = [
     {
         path: 'home',
         loadComponent: () => import('./components/home/main-page/main-page.component').then(m => m.MainPageComponent),
-        providers: [ProgramService]
+        providers: [ProgramService],
+        canActivate: [() => { console.log('Tentative d\'accès à la route...'); return true; }]
     },
     {
         path: 'gift',

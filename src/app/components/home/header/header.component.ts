@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit, OnDestroy{
   speed = 0.3;
 
   ngOnInit(): void {
-    this.audioService.play();
+    //this.audioService.play();
     this.initLyrics();
     setTimeout(() => this.startSlider());
     setTimeout(() => this.initHeader = true);
