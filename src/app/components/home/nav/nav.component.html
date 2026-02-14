@@ -4,21 +4,26 @@
         <!-- Item Container -->
         <ul [ngClass]="{'bg-[var(--color-1)]': navBg}" class="flex items-center justify-center gap-8 py-1 rounded-xl transition duration-600 ease-in-out">
             <!-- Items -->
-            <li class="group flex items-center gap-2 p-2 pointer" (click)="activeHome()">
-                <a routerLink="./" fragment="home" [ngClass]="{'translate-x-2': !homeActive(), 'translate-x-0': homeActive()}" class="text-sm text-red-800 font-medium font-sans translate-x-2 group-hover:translate-x-0 transition-transform duration-300 ease-in-out">Accueil</a>
+            <a href="#home" class="group flex items-center gap-2 p-2 pointer" (click)="activeHome()">
+                <span [ngClass]="{'translate-x-2': !homeActive(), 'translate-x-0': homeActive()}" class="text-sm text-red-800 font-medium font-sans translate-x-2 group-hover:translate-x-0 transition-transform duration-300 ease-in-out">Accueil</span>
                 <app-ico-heart [dynamicClass]="!homeActive() ? '-translate-x-2 opacity-0' : 'translate-x-0 opacity-100'"
                                 svgClass="h-4 group-hover:translate-x-0 group-hover:opacity-100 transition-[translate, opacity] duration-600"/>
-            </li>
-            <li class="group flex items-center gap-2 p-2 pointer" (click)="activeCv()">
-                <a routerLink="./" fragment="cv" [ngClass]="{'translate-x-2': !cvActive(), 'translate-x-0': cvActive()}" class="text-sm text-red-800 font-medium font-sans translate-x-2 group-hover:translate-x-0 transition-transform duration-300 ease-in-out">C.V</a>
+            </a>
+            <a href="#cv" class="group flex items-center gap-2 p-2 pointer" (click)="activeCv()">
+                <span [ngClass]="{'translate-x-2': !cvActive(), 'translate-x-0': cvActive()}" class="text-sm text-red-800 font-medium font-sans translate-x-2 group-hover:translate-x-0 transition-transform duration-300 ease-in-out">C.V</span>
                 <app-ico-heart [dynamicClass]="!cvActive() ? '-translate-x-2 opacity-0' : 'translate-x-0 opacity-100'" 
                                 svgClass="h-4 group-hover:translate-x-0 group-hover:opacity-100 transition-[translate, opacity] duration-600"/>
-            </li>
-            <li class="group flex items-center gap-2 p-2 pointer" (click)="activeDisquette()">
-                <a routerLink="./" fragment="disquette" [ngClass]="{'translate-x-2': !disquetteActive(), 'translate-x-0': disquetteActive()}" class="text-sm text-red-800 font-medium font-sans translate-x-2 group-hover:translate-x-0 transition-transform duration-300 ease-in-out">Disquettes</a>
+            </a>
+            <a href="#program" class="group flex items-center gap-2 p-2 pointer" (click)="activeProgram()">
+                <span [ngClass]="{'translate-x-2': !programActive(), 'translate-x-0': programActive()}" class="text-sm text-red-800 font-medium font-sans translate-x-2 group-hover:translate-x-0 transition-transform duration-300 ease-in-out">Programme</span>
+                <app-ico-heart [dynamicClass]="!programActive() ? '-translate-x-2 opacity-0' : 'translate-x-0 opacity-100'" 
+                                svgClass="h-4 group-hover:translate-x-0 group-hover:opacity-100 transition-[translate, opacity] duration-600"/>
+            </a>
+            <a href="#disquette" class="group flex items-center gap-2 p-2 pointer" (click)="activeDisquette()">
+                <span [ngClass]="{'translate-x-2': !disquetteActive(), 'translate-x-0': disquetteActive()}" class="text-sm text-red-800 font-medium font-sans translate-x-2 group-hover:translate-x-0 transition-transform duration-300 ease-in-out">Disquettes</span>
                 <app-ico-heart [dynamicClass]="!disquetteActive() ? '-translate-x-2 opacity-0' : 'translate-x-0 opacity-100'" 
                                 svgClass="h-4 group-hover:translate-x-0 group-hover:opacity-100 transition-[translate, opacity] duration-600"/>
-            </li>
+            </a>
         </ul>
     </div>
 </nav>
@@ -30,19 +35,25 @@
         <!-- Item Container -->
         <ul class="flex items-center justify-evenly gap-4">
             <!-- Items -->
-            <a routerLink="./" fragment="home" class="group flex flex-col-reverse justify-center items-center gap-2 pointer" (click)="activeHome()">
+            <a href="#home" class="group flex flex-col-reverse justify-center items-center gap-2 pointer" (click)="activeHome()">
                 <span [ngClass]="{'-translate-y-3': !homeActive(), 'translate-y-0': homeActive()}" 
                     class="block text-sm text-red-800 font-bold sm:font-medium font-sans group-hover:translate-y-0 transition-transform duration-300 ease-in-out">Accueil</span>
                 <app-ico-heart [dynamicClass]="!homeActive() ? 'translate-y-3 opacity-0' : 'translate-y-0 opacity-100'"
                                 svgClass="h-5 group-hover:translate-y-0 group-hover:opacity-100 transition-[translate, opacity] duration-600"/>
             </a>
-            <a routerLink="./" fragment="cv" class="group flex flex-col-reverse justify-center items-center gap-2 pointer" (click)="activeCv()">
+            <a href="#cv" class="group flex flex-col-reverse justify-center items-center gap-2 pointer" (click)="activeCv()">
                 <span [ngClass]="{'-translate-y-3': !cvActive(), 'translate-y-0': cvActive()}" 
                     class="text-sm text-red-800 font-bold sm:font-medium font-sans group-hover:translate-y-0 transition-transform duration-300 ease-in-out">C.V</span>
                 <app-ico-heart [dynamicClass]="!cvActive() ? '-translate-y-3 opacity-0' : 'translate-y-0 opacity-100'"
                                 svgClass="h-5 group-hover:translate-y-0 group-hover:opacity-100 transition-[translate, opacity] duration-600"/>
             </a>
-            <a routerLink="./" fragment="disquette" class="group flex flex-col-reverse justify-center items-center gap-2 pointer" (click)="activeDisquette()">
+            <a href="#program" class="group flex flex-col-reverse justify-center items-center gap-2 pointer" (click)="activeProgram()">
+                <span [ngClass]="{'-translate-y-3': !programActive(), 'translate-y-0': programActive()}" 
+                    class="text-sm text-red-800 font-bold sm:font-medium font-sans group-hover:translate-y-0 transition-transform duration-300 ease-in-out">Programme</span>
+                <app-ico-heart [dynamicClass]="!programActive() ? '-translate-y-3 opacity-0' : 'translate-y-0 opacity-100'"
+                                svgClass="h-5 group-hover:translate-y-0 group-hover:opacity-100 transition-[translate, opacity] duration-600"/>
+            </a>
+            <a href="#gendisquette" class="group flex flex-col-reverse justify-center items-center gap-2 pointer" (click)="activeDisquette()">
                 <span [ngClass]="{'-translate-y-3': !disquetteActive(), 'translate-y-0': disquetteActive()}" 
                     class="text-sm text-red-800 font-bold sm:font-medium font-sans group-hover:translate-y-0 transition-transform duration-300 ease-in-out">Disquettes</span>
                 <app-ico-heart [dynamicClass]="!disquetteActive() ? '-translate-y-3 opacity-0' : 'translate-y-0 opacity-100'"

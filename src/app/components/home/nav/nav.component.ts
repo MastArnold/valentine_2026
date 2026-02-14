@@ -15,8 +15,8 @@ export class NavComponent implements OnInit{
 
   homeActive = signal(true);
   cvActive = signal(false);
+  programActive = signal(false);
   disquetteActive = signal(false);
-  contactActive = signal(false);
 
   ngOnInit(): void {
     setTimeout(()=> this.initNav = true);
@@ -34,28 +34,28 @@ export class NavComponent implements OnInit{
     this.homeActive.set(true);
     this.cvActive.set(false);
     this.disquetteActive.set(false);
-    this.contactActive.set(false);
+    this.programActive.set(false);
   }
 
   activeCv(){
     this.homeActive.set(false);
     this.cvActive.set(true);
     this.disquetteActive.set(false);
-    this.contactActive.set(false);
+    this.programActive.set(false);
   }
 
   activeDisquette(){
     this.homeActive.set(false);
     this.cvActive.set(false);
     this.disquetteActive.set(true);
-    this.contactActive.set(false);
+    this.programActive.set(false);
   }
 
-  activeContact(){
+  activeProgram(){
+    this.programActive.set(true);
     this.homeActive.set(false);
     this.cvActive.set(false);
     this.disquetteActive.set(false);
-    this.contactActive.set(true);
   }
 
 }
