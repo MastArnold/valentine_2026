@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, HostListener, signal } from '@angular/core';
+import { Component, HostListener, OnInit, signal } from '@angular/core';
 import { IcoHeartComponent } from "../../../svg/ico/ico-heart/ico-heart.component";
 import { RouterLink } from "@angular/router";
 
@@ -9,13 +9,18 @@ import { RouterLink } from "@angular/router";
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.scss'
 })
-export class NavComponent {
+export class NavComponent implements OnInit{
   navBg: boolean = false;
+  initNav: boolean = false;
 
   homeActive = signal(true);
   cvActive = signal(false);
   disquetteActive = signal(false);
   contactActive = signal(false);
+
+  ngOnInit(): void {
+    setTimeout(()=> this.initNav = true);
+  }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {

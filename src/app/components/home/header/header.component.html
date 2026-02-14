@@ -1,6 +1,8 @@
-<header id="home" class="relative w-full sm:min-h-screen sm:overflow-hidden px-8 sm:px-24 pt-12 sm:pt-20">
+<header id="home" 
+        class="relative w-full sm:min-h-screen sm:overflow-hidden px-8 sm:px-24 pt-12 sm:pt-20">
     <!-- Container -->
-    <div class="sm:px-8 pt-20 pb-12 space-y-8 sm:space-y-16">
+    <div [ngClass]="{'opacity-0': !initHeader, 'opacity-100': initHeader}" 
+        class="sm:px-8 pt-32 sm:pt-20 pb-12 space-y-8 sm:space-y-16 transition-[opacity] duration-1200 ease-in-out">
         <!-- Title -->
         <div class="w-full">
             <h1 class="text-5xl sm:text-8xl text-center text-red-800 font-medium fiolexgirl">Just The Two Of Us</h1>
@@ -10,10 +12,10 @@
         <div class="relative flex flex-col sm:flex-row items-start sm:justify-between gap-6 sm:gap-0 w-full sm:h-full">
             <!-- Vinyle -->
             <div class="w-full sm:w-1/3 p-3 sm:space-y-6">
-                <div class="group relative mx-auto w-48 sm:w-64 h-48 sm:h-64 rounded-full bg-radial from-gray-700 from-40% to-gray-800 flex items-center justify-center">
+                <a href="https://open.spotify.com/intl-fr/track/5fdNHVZHbWB1AaXk4RBGVD?si=efcb2eaa926f4461" target="_blank" class="block group relative mx-auto w-48 sm:w-64 h-48 sm:h-64 rounded-full bg-radial from-gray-700 from-40% to-gray-800 flex items-center justify-center pointer">
                     <div class="w-24 sm:w-32 h-24 sm:h-32 bg-gray-600 rounded-full bg-cover bg-center animate-spin group-hover:scale-110 transition-[scale] duration-800" style="animation-duration: 12s; background-image: url('images/vinyl.jpg');"></div>
 
-                    <div class="absolute inset-0 bg-black/40 hover:opacity-100 opacity-0 rounded-full flex justify-center items-center transition duration-300 ease-in-out pointer" (click)="playGrover()">
+                    <div class="hidden absolute inset-0 bg-black/40 hover:opacity-100 opacity-0 rounded-full flex justify-center items-center transition duration-300 ease-in-out pointer" (click)="playGrover()">
                         <svg class="w-12 sm:w-16" viewBox="0 0 84 84" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_2022_23)">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M71.937 30.8801L24.0092 1.70624C15.9851 -3.175 6 3.00065 6 12.8273V71.1721C6 81.0115 15.9851 87.1744 24.0092 82.2932L71.937 53.134C80.0212 48.2143 80.0212 35.7997 71.937 30.8801Z" fill="white"/>
@@ -29,7 +31,7 @@
                     <!-- Hole -->
                     <div class="absolute w-6 h-6 top-center left-center bg-white rounded-full pointer-events-none"></div>
                     
-                </div>
+                </a>
                 <ul class="hidden flex flex-col justify-start gap-3 mx-auto px-24">
                     <li class="flex items-center justify-start gap-2">
                         <span class="w-2 h-2 bg-gray-950"></span>
@@ -47,15 +49,17 @@
             </div>
 
             <!-- Quote -->
-            <div class="relative w-full sm:w-2/3 h-48 sm:h-72 px-6 sm:px-16 py-4 sm:py-6 rounded-lg overflow-hidden">
-                <div class="absolute -z-10 inset-0 bg-cover bg-[url('../public/images/header-2.jpg')]"></div>
-                <div class="absolute -z-10 inset-0 bg-black/40"></div>
-                <div class="absolute -z-10 inset-0 bg-blue-50/30"></div>
-                
-                <!-- Quote Container -->
-                <div class="w-full">
-                    <!-- Quote Texte -->
-                    <p class="text-lg text-white text-right font-medium font-sans">Contruisons un chateau d'amour dans le ciel, <br> juste toi et moi </p>
+            <div class="w-full sm:w-2/3 px-6 sm:px-0">
+                <div class="relative w-full h-48 sm:h-72 px-6 sm:px-16 py-4 sm:py-6 rounded-lg overflow-hidden">
+                    <div class="absolute -z-10 inset-0 bg-cover bg-[url('../public/images/header-2.jpg')]"></div>
+                    <div class="absolute -z-10 inset-0 bg-black/40"></div>
+                    <div class="absolute -z-10 inset-0 bg-blue-50/30"></div>
+                    
+                    <!-- Quote Container -->
+                    <div class="w-full">
+                        <!-- Quote Texte -->
+                        <p class="text-lg text-white text-right font-medium font-sans">Contruisons un chateau d'amour dans le ciel, <br> juste toi et moi </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -113,11 +117,13 @@
     <!-- 
     écouter le scroll pour changer la valeur de scale pour l'agrandir au fur et à mesure qu'on scroll
     -->
-    <div class="absolute -z-20 inset-x-8 sm:inset-x-24 top-8 sm:top-20 bottom-0 bg-white rounded-t-4xl sm:rounded-t-3xl"
+    <div [ngClass]="{'scale-x-60 opacity-0': !initHeader, 'scale-x-100 opacity-100': initHeader, 'duration-1200': !afterInit, 'duration-0': afterInit}"
+        class="absolute -z-20 inset-x-8 sm:inset-x-24 top-18 sm:top-8 sm:top-20 bottom-0 bg-white rounded-t-4xl sm:rounded-t-3xl transition-[translate, opacity] duration-1200 ease-in-out"
         [style.transform]="'scaleX(' + (1 + progressCover * 0.5) + ') scaleY(' + (1 + progressCover * 2) + ')'"></div>
     
     <!-- Cupidon Illustration -->
-    <div class="absolute -z-0 -top-2 sm:top-10 left-4 sm:left-12 w-32 sm:w-48 h-32 sm:h-48 rounded-xl"
+    <div [ngClass]="{'translate-0': initHeader, '-translate-1/2': !initHeader}"
+        class="absolute -z-0 top-4 sm:top-10 left-4 sm:left-12 w-32 sm:w-48 h-32 sm:h-48 rounded-xl transition-[translate] duration-1800 ease-in-out"
         [style.transform]="'translateX(-'+(progressCupidon * 100)+'%) translateY(-'+(progressCupidon * 60)+'%)'">
 
         <svg class="w-full aspect-square" viewBox="0 0 575 575" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -128,7 +134,8 @@
         </svg>
     </div>
     <!-- Cupidon Arrow -->
-    <div class="absolute -z-10 -top-2 sm:top-10 left-4 sm:left-12 w-32 sm:w-48 h-32 sm:h-48 rounded-xl"
+    <div [ngClass]="{'translate-0': initHeader, '-translate-1/2': !initHeader}"
+        class="absolute -z-10 top-4 sm:top-10 left-4 sm:left-12 w-32 sm:w-48 h-32 sm:h-48 rounded-xl transition-[translate] duration-1800 ease-in-out"
         [style.transform]="'translateX('+(progressCupidon * 100)+'%) translateY('+(progressCupidon * 60)+'%)'"
         [style.opacity]="1 - progressCupidon"]>
 

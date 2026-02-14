@@ -1,16 +1,19 @@
-import { Component, ElementRef, HostListener, inject, OnInit, signal, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, inject, OnDestroy, OnInit, signal, ViewChild } from '@angular/core';
 import { Lyric } from '../../../interfaces/lyric.interface';
 import { AudioService } from '../../../services/audio.service';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  imports: [NgClass],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent implements OnInit, OnDestroy{
   audioService = inject(AudioService);
   audioPlayed = false;
+  initHeader = false;
+  afterInit = false;
 
   lyricOverlay = signal(false);
   lyrics : Lyric[] = [];
@@ -23,8 +26,15 @@ export class HeaderComponent implements OnInit{
   speed = 0.3;
 
   ngOnInit(): void {
+    this.audioService.play();
     this.initLyrics();
     setTimeout(() => this.startSlider());
+    setTimeout(() => this.initHeader = true);
+    setTimeout(() => this.afterInit = true, 2000);
+  }
+
+  ngOnDestroy(): void {
+    this.audioService.pause();
   }
 
   playGrover() {

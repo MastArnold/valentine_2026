@@ -1,9 +1,9 @@
-<section class="relative group min-h-screen px-24 py-16 flex justify-center items-center">
+<section class="relative group min-h-screen px-8 sm:px-24 py-12 sm:py-16 flex justify-center items-center">
     <div>
         <!-- Heart -->
         <div>
             <div class="animate-x-spin flex justify-center">
-                <svg class="w-48" viewBox="0 0 83 83" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class="w-32 sm:w-48" viewBox="0 0 83 83" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M57.5691 11.0428C59.9349 25.2505 55.2 34.395 43.3643 38.4765C31.5286 42.5579 28.3523 51.6993 33.8353 65.9008L41.5 73.5427L74.4336 39.9363C77.83 29.1059 75.4203 20.1603 67.2045 13.0996C61.7581 8.905 58.5463 8.21941 57.5691 11.0428Z" fill="#D8D8D8"/>
                     <mask id="mask0_2080_61" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="31" y="9" width="45" height="65">
                     <path d="M57.5691 11.0428C59.9349 25.2505 55.2 34.395 43.3643 38.4765C31.5286 42.5579 28.3523 51.6993 33.8353 65.9008L41.5 73.5427L74.4336 39.9363C77.83 29.1059 75.4203 20.1603 67.2045 13.0996C61.7581 8.905 58.5463 8.21941 57.5691 11.0428Z" fill="white"/>
@@ -19,28 +19,27 @@
                     <path d="M83 0H0V83H83V0Z" fill="#BE4065"/>
                     </g>
                 </svg>
-
             </div>
         </div>
         <!-- Texte -->
-        <div>
-            <h4 class="text-8xl text-[var(--color-3)] font-bold valentine">Veux tu être ma valentine</h4>            
+        <div class="mt-6 sm:mt-0">
+            <h4 class="text-7xl sm:text-8xl text-center sm:text-left text-[var(--color-3)] font-bold valentine">Veux tu être ma valentine</h4>            
         </div>
         <!-- Buttons -->
-        <div class="flex justify-evenly items-center gap-12 py-8">
+        <div class="flex justify-evenly items-center gap-8 sm:gap-12 py-6 sm:py-8">
             @for(btn of yesButtons; track btn){
-            <button [ngStyle]="{ 'top': btn.top, 'left': btn.left }" class="absolute z-40 flex items-center gap-3 pointer">
-                <span class="block border-8 border-[var(--color-3)] rounded-xl w-16 h-16"></span>
-                <span class="text-3xl text-[var(--color-3)] font-bold font-sans uppercase">Oui</span>
+            <button routerLink="home" [ngStyle]="{ 'top': btn.top, 'left': btn.left }" class="absolute z-40 flex flex-col-reverse sm:flex-row items-center gap-3 pointer">
+                <span class="block border-4 sm:border-8 border-[var(--color-3)] rounded-xl w-12 sm:w-16 h-12 sm:h-16"></span>
+                <span class="text-3xl text-[var(--color-3)] font-medium sm:font-bold font-sans uppercase">Oui</span>
             </button>
             }
-            <button class="flex items-center gap-3 pointer">
-                <span class="block border-8 border-[var(--color-3)] rounded-xl w-16 h-16"></span>
-                <span class="text-3xl text-[var(--color-3)] font-bold font-sans uppercase">Oui</span>
+            <button routerLink="home" class="flex flex-col-reverse sm:flex-row items-center gap-3 pointer">
+                <span class="block border-4 sm:border-8 border-[var(--color-3)] rounded-xl w-12 sm:w-16 h-12 sm:h-16"></span>
+                <span class="text-3xl text-[var(--color-3)] font-medium sm:font-bold font-sans uppercase">Oui</span>
             </button>
-            <button [class.hidden]="!btnNoVisible" class="flex items-center gap-3 pointer" (click)="checkNo()">
-                <span class="block border-8 border-[var(--color-3)] rounded-xl w-16 h-16"></span>
-                <span class="text-3xl text-slate-700 font-bold font-sans uppercase">Non</span>
+            <button [class.hidden]="!btnNoVisible" class="flex flex-col-reverse sm:flex-row items-center gap-3 pointer" (click)="checkNo()">
+                <span class="block border-4 sm:border-8 border-[var(--color-4)] rounded-xl w-12 sm:w-16 h-12 sm:h-16"></span>
+                <span class="text-3xl text-[var(--color-4)] font-medium sm:font-bold font-sans uppercase">Non</span>
             </button>
         </div>
     </div>

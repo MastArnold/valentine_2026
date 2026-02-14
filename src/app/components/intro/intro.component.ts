@@ -2,10 +2,11 @@ import { NgClass, NgStyle } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { AudioService } from '../../services/audio.service';
 import { ButtonPosition } from '../../interfaces/button-position.interface';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-intro',
-  imports: [NgClass, NgStyle],
+  imports: [NgClass, NgStyle, RouterLink],
   templateUrl: './intro.component.html',
   styleUrl: './intro.component.scss'
 })

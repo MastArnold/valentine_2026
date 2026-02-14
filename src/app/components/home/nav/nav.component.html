@@ -1,4 +1,4 @@
-<nav class="hidden lg:block fixed z-40 top-0 inset-x-24">
+<nav [ngClass]="{'translate-y-0': initNav, 'translate-y-full': !initNav}" class="hidden lg:block fixed z-40 top-0 inset-x-24 transition-transform duration-1200 ease-in-out">
     <!-- Container -->
     <div class="hidden lg:block w-2/3 mx-auto px-32 py-6">
         <!-- Item Container -->
@@ -19,37 +19,31 @@
                 <app-ico-heart [dynamicClass]="!disquetteActive() ? '-translate-x-2 opacity-0' : 'translate-x-0 opacity-100'" 
                                 svgClass="h-4 group-hover:translate-x-0 group-hover:opacity-100 transition-[translate, opacity] duration-600"/>
             </li>
-            <li class="group flex items-center gap-2 p-2 pointer" (click)="activeContact()">
-                <a routerLink="./" fragment="contact" [ngClass]="{'translate-x-2': !contactActive(), 'translate-x-0': contactActive()}" class="text-sm text-red-800 font-medium font-sans translate-x-2 group-hover:translate-x-0 transition-transform duration-300 ease-in-out">Contact</a>
-                <app-ico-heart [dynamicClass]="!contactActive() ? '-translate-x-2 opacity-0' : 'translate-x-0 opacity-100'" 
-                                svgClass="h-4 group-hover:translate-x-0 group-hover:opacity-100 transition-[translate, opacity] duration-600"/>
-            </li>
         </ul>
     </div>
 </nav>
 
 <!-- Nav Mobile -->
-<nav class="lg:hidden fixed z-40 bottom-0 inset-x-0">
+<nav class="lg:hidden fixed z-40 bottom-0 inset-x-0 px-6">
     <!-- Container -->
-    <div class="px-16 py-8">
+    <div class="px-16 py-8 bg-white rounded-t-2xl">
         <!-- Item Container -->
         <ul class="flex items-center justify-evenly gap-4">
             <!-- Items -->
-            <li class="group flex flex-col justify-start items-center gap-3 p-2">
-                <span span [ngClass]="{'-translate-x-4 opacity-0': !homeActive(), 'translate-x-0 opacity-100': homeActive()}" class="w-2 h-2 bg-red-800 group-hover:translate-x-0 group-hover:opacity-100 transition-[transform] duration-300 ease-in-out"></span>
-                <a href="#home" [ngClass]="{'translate-x-2': !homeActive(), 'translate-x-0': homeActive()}" class="text-sm text-red-800 font-medium font-sans group-hover:transition-x-0 transition-[transform] duration-300 ease-in-out">Accueil</a>
+            <li class="group flex flex-col-reverse justify-start items-center gap-3 pointer" (click)="activeHome()">
+                <a routerLink="./" fragment="home" [ngClass]="{'translate-y-2': !homeActive(), 'translate-y-0': homeActive()}" class="text-sm text-red-800 font-medium font-sans translate-y-2 group-hover:translate-y-0 transition-transform duration-300 ease-in-out">Accueil</a>
+                <app-ico-heart [dynamicClass]="!homeActive() ? 'translate-y-2 opacity-0' : 'translate-y-0 opacity-100'"
+                                svgClass="h-6 group-hover:translate-y-0 group-hover:opacity-100 transition-[translate, opacity] duration-600"/>
             </li>
-            <li class="group flex flex-col justify-start items-center gap-3 p-2">
-                <span [ngClass]="{'-translate-x-4 opacity-0': !cvActive(), 'translate-x-0 opacity-100': cvActive()}" class="w-2 h-2 bg-red-800 group-hover:translate-x-0 group-hover:opacity-100 transition-[transform] duration-300 ease-in-out"></span>
-                <a href="#cv" [ngClass]="{'translate-x-2': !cvActive(), 'translate-x-0': cvActive()}" class="text-sm text-red-800 font-medium font-sans group-hover:transition-x-0 transition-[transform] duration-300 ease-in-out">C.V</a>
+            <li class="group flex flex-col-reverse justify-start items-center gap-3 pointer" (click)="activeCv()">
+                <a routerLink="./" fragment="home" [ngClass]="{'translate-y-2': !cvActive(), 'translate-y-0': cvActive()}" class="text-sm text-red-800 font-medium font-sans translate-y-2 group-hover:translate-y-0 transition-transform duration-300 ease-in-out">C.V</a>
+                <app-ico-heart [dynamicClass]="!cvActive() ? 'translate-y-2 opacity-0' : 'translate-y-0 opacity-100'"
+                                svgClass="h-6 group-hover:translate-y-0 group-hover:opacity-100 transition-[translate, opacity] duration-600"/>
             </li>
-            <li class="group flex flex-col justify-start items-center gap-3 p-2">
-                <span span [ngClass]="{'-translate-x-4 opacity-0': !disquetteActive(), 'translate-x-0 opacity-100': disquetteActive()}" class="w-2 h-2 bg-red-800 group-hover:translate-x-0 group-hover:opacity-100 transition-[transform] duration-300 ease-in-out"></span>
-                <a href="#disquettes" [ngClass]="{'translate-x-2': !disquetteActive(), 'translate-x-0': disquetteActive()}" class="text-sm text-red-800 font-medium font-sans group-hover:transition-x-0 transition-[transform] duration-300 ease-in-out">Disquettes</a>
-            </li>
-            <li class="group flex flex-col justify-start items-center gap-3 p-2">
-                <span span [ngClass]="{'-translate-x-4 opacity-0': !contactActive(), 'translate-x-0 opacity-100': contactActive()}" class="w-2 h-2 bg-red-800 group-hover:translate-x-0 group-hover:opacity-100 transition-[transform] duration-300 ease-in-out"></span>
-                <a href="#contact" [ngClass]="{'translate-x-2': !contactActive(), 'translate-x-0': contactActive()}" class="text-sm text-red-800 font-medium font-sans group-hover:transition-x-0 transition-[transform] duration-300 ease-in-out">Contact</a>
+            <li class="group flex flex-col-reverse justify-start items-center gap-3 pointer" (click)="activeDisquette()">
+                <a routerLink="./" fragment="home" [ngClass]="{'translate-y-2': !disquetteActive(), 'translate-y-0': disquetteActive()}" class="text-sm text-red-800 font-medium font-sans translate-y-2 group-hover:translate-y-0 transition-transform duration-300 ease-in-out">Disquettes</a>
+                <app-ico-heart [dynamicClass]="!disquetteActive() ? 'translate-y-2 opacity-0' : 'translate-y-0 opacity-100'"
+                                svgClass="h-6 group-hover:translate-y-0 group-hover:opacity-100 transition-[translate, opacity] duration-600"/>
             </li>
         </ul>
     </div>
