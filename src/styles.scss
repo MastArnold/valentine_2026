@@ -86,18 +86,14 @@
     src: url('../public/fonts/fiolex_girls/Filxgirl.TTF') format('truetype');
     font-weight: normal;
     font-style: normal;
-}
-@font-face {
-    font-family: 'MyHeart';
-    src: url('../public/fonts/myheart/myheart.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+    font-display: block;
 }
 @font-face {
     font-family: 'Valentine';
     src: url('../public/fonts/valentine/Valentine.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: block;
 }
 @font-face {
     font-family: 'KissingSeason';

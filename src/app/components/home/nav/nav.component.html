@@ -26,25 +26,28 @@
 <!-- Nav Mobile -->
 <nav class="lg:hidden fixed z-40 bottom-0 inset-x-0 px-6">
     <!-- Container -->
-    <div class="px-16 py-8 bg-white rounded-t-2xl">
+    <div class="px-2 py-4 bg-white rounded-t-2xl">
         <!-- Item Container -->
         <ul class="flex items-center justify-evenly gap-4">
             <!-- Items -->
-            <li class="group flex flex-col-reverse justify-start items-center gap-3 pointer" (click)="activeHome()">
-                <a routerLink="./" fragment="home" [ngClass]="{'translate-y-2': !homeActive(), 'translate-y-0': homeActive()}" class="text-sm text-red-800 font-medium font-sans translate-y-2 group-hover:translate-y-0 transition-transform duration-300 ease-in-out">Accueil</a>
-                <app-ico-heart [dynamicClass]="!homeActive() ? 'translate-y-2 opacity-0' : 'translate-y-0 opacity-100'"
-                                svgClass="h-6 group-hover:translate-y-0 group-hover:opacity-100 transition-[translate, opacity] duration-600"/>
-            </li>
-            <li class="group flex flex-col-reverse justify-start items-center gap-3 pointer" (click)="activeCv()">
-                <a routerLink="./" fragment="home" [ngClass]="{'translate-y-2': !cvActive(), 'translate-y-0': cvActive()}" class="text-sm text-red-800 font-medium font-sans translate-y-2 group-hover:translate-y-0 transition-transform duration-300 ease-in-out">C.V</a>
-                <app-ico-heart [dynamicClass]="!cvActive() ? 'translate-y-2 opacity-0' : 'translate-y-0 opacity-100'"
-                                svgClass="h-6 group-hover:translate-y-0 group-hover:opacity-100 transition-[translate, opacity] duration-600"/>
-            </li>
-            <li class="group flex flex-col-reverse justify-start items-center gap-3 pointer" (click)="activeDisquette()">
-                <a routerLink="./" fragment="home" [ngClass]="{'translate-y-2': !disquetteActive(), 'translate-y-0': disquetteActive()}" class="text-sm text-red-800 font-medium font-sans translate-y-2 group-hover:translate-y-0 transition-transform duration-300 ease-in-out">Disquettes</a>
-                <app-ico-heart [dynamicClass]="!disquetteActive() ? 'translate-y-2 opacity-0' : 'translate-y-0 opacity-100'"
-                                svgClass="h-6 group-hover:translate-y-0 group-hover:opacity-100 transition-[translate, opacity] duration-600"/>
-            </li>
+            <a routerLink="./" fragment="home" class="group flex flex-col-reverse justify-center items-center gap-2 pointer" (click)="activeHome()">
+                <span [ngClass]="{'-translate-y-3': !homeActive(), 'translate-y-0': homeActive()}" 
+                    class="block text-sm text-red-800 font-bold sm:font-medium font-sans group-hover:translate-y-0 transition-transform duration-300 ease-in-out">Accueil</span>
+                <app-ico-heart [dynamicClass]="!homeActive() ? 'translate-y-3 opacity-0' : 'translate-y-0 opacity-100'"
+                                svgClass="h-5 group-hover:translate-y-0 group-hover:opacity-100 transition-[translate, opacity] duration-600"/>
+            </a>
+            <a routerLink="./" fragment="cv" class="group flex flex-col-reverse justify-center items-center gap-2 pointer" (click)="activeCv()">
+                <span [ngClass]="{'-translate-y-3': !cvActive(), 'translate-y-0': cvActive()}" 
+                    class="text-sm text-red-800 font-bold sm:font-medium font-sans group-hover:translate-y-0 transition-transform duration-300 ease-in-out">C.V</span>
+                <app-ico-heart [dynamicClass]="!cvActive() ? '-translate-y-3 opacity-0' : 'translate-y-0 opacity-100'"
+                                svgClass="h-5 group-hover:translate-y-0 group-hover:opacity-100 transition-[translate, opacity] duration-600"/>
+            </a>
+            <a routerLink="./" fragment="disquette" class="group flex flex-col-reverse justify-center items-center gap-2 pointer" (click)="activeDisquette()">
+                <span [ngClass]="{'-translate-y-3': !disquetteActive(), 'translate-y-0': disquetteActive()}" 
+                    class="text-sm text-red-800 font-bold sm:font-medium font-sans group-hover:translate-y-0 transition-transform duration-300 ease-in-out">Disquettes</span>
+                <app-ico-heart [dynamicClass]="!disquetteActive() ? '-translate-y-3 opacity-0' : 'translate-y-0 opacity-100'"
+                                svgClass="h-5 group-hover:translate-y-0 group-hover:opacity-100 transition-[translate, opacity] duration-600"/>
+            </a>
         </ul>
     </div>
 </nav>
